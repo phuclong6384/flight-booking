@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package flight;
+
+option go_package = "./";
+
+message QueryFlightDetail {
+  int32 flightId = 1;
+}
+
+message FlightDetailResponse {
+  int32 id = 1;
+  string code = 2;
+  int32 totalSlot = 3;
+  string departureTime = 4;
+  string arrivalTime = 5;
+}
+
+service FlightService {
+  rpc SearchFlight (QueryFlightDetail) returns (FlightDetailResponse);
+}
